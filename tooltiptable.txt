@@ -1,0 +1,3 @@
+# Tool Tip for use with smartdlg, allowing better internationalization
+# keyed on the Tag
+st
