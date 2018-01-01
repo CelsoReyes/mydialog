@@ -1,12 +1,17 @@
-classdef HeaderPart < SmartDlgPart
-    %HeaderPart base class for items in a popup menu
+classdef HeaderPart < smartdlg.SmartDlgPart
+    %HeaderPart
+    % hp = HEADERPART(text, alignment, tooltip)
+    % 
+    
+    
     properties
         text
         alignment
     end
     
     methods(Access=public)
-        function obj=HeaderPart(text,alignment, tooltip)
+        function obj=HeaderPart(text, alignment, tooltip)
+            % HEADERPART
             obj.text=text;
             if ~exist('alignment','var') || isempty('alignment')
                 alignment='center';
@@ -21,8 +26,8 @@ classdef HeaderPart < SmartDlgPart
         
         function obj=draw(obj,fig, minx, miny)
             
-            obj.h=uicontrol('parent',fig,'Style','text',...
-                'String',[obj.text, ' : '],...
+            obj.h=uilabel('parent',fig,...
+                'Text',[obj.text, ' : '],...
                 'FontWeight','bold',...
                 'HorizontalAlignment',obj.alignment,...
                 'Position',[minx miny obj.width, obj.height]);

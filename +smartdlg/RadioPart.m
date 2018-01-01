@@ -41,8 +41,8 @@ classdef RadioPart < SmartDlgPart
             
             %draw radio buttons within the group
             for n = numel(obj.choices):-1:1
-              htmp(n)=uicontrol('Parent',obj.h,'style','radiobutton',...
-                  'String',obj.choices{n},'tag',obj.choicetags{n});
+              htmp(n)=uiradiobutton('Parent',obj.h,...
+                  'Text',obj.choices{n},'Tag',obj.choicetags{n});
               
               htmp(n).Position(2)=totalheight;
               htmp(n).Position(3)=obj.width-10;
