@@ -1,4 +1,96 @@
 classdef SmartDlg < handle
+    % SMARTDLG create a smart dialog box
+    % 
+    %
+    % Usage:
+    %
+    %    % create a dialog box containing:
+    %    %  1. a drop-down menu
+    %    
+    %    % % general usage: (TAG, TEXT/LABEL, CHOICES/FORMAT, DEFAULT, tooltips, [name-value pairs...])
+    %    dd = smartdlg.DropDownPart('method',... Tag
+    %                               'Choose a method:',... Label/Text
+    %                               {'first','second','third'},...
+    %                               'second',...                default value
+    %                               'Choose a method for calculation');
+    %                               % You can add Additional properties [prop, value]: 
+    %                                   % ItemsData
+    %                               
+    %
+    %    %  2. a checkbox
+    %
+    %    cb = smartdlg.CheckboxPart('dodates',... Tag
+    %                               'Use date fields?',... Label/Text
+    %                               [],...                  UNUSED
+    %                               true,...                default value
+    %                               'activate date fields');
+    %)
+    %
+    %    %  3-6. four edit fields: 
+    %    %    3. text
+    %
+    %    txf = smartdlg.TextFieldPart('statement',... Tag
+    %                               'Saysomething',... Label/Text
+    %                               [],...              formatting option (ValueDIsplayFormat)
+    %                               'something',...                default value
+    %                               'enter some text here');
+    %
+    %    %    4. numeric
+    %
+    %    nmf = smartdlg.NumericFieldPart('number',... Tag
+    %                               'favorite number',... Label/Text
+    %                               '11.4g',...              formatting option (ValueDIsplayFormat)
+    %                               42,...                default value
+    %                               'enter your favorite number');
+    %                               % You can add Additional properties [prop, value]: 
+    %                                   % Limits, LowerLimitInclusive, UpperLimitInclusive, RoundFractionalValues
+    %
+    %    %    5. date
+    %
+    %    dtf = smartdlg.DateFieldPart('birthday',... Tag
+    %                               'Birth date:',... Label/Text
+    %                               'yyyy-MM-dd hh:mm:ss',... formatting option
+    %                               datetime,...                default value
+    %                               'enter your birth day here');
+    %                               % You can add Additional properties [prop, value]: 
+    %                                   % Limits, LowerLimitInclusive, UpperLimitInclusive, RoundTo ['day','hour','year',etc]
+    %
+    %    %    6. duration
+    %
+    %    drf = smartdlg.DurationFieldPart('timelength',... Tag
+    %                               'Length of time',... Label/Text
+    %                               'days',...  formatting option: 'days','minutes', 'years', etc...
+    %                               days(23),...                default value
+    %                               'enter some length of time in days');
+    %                               % You can add Additional properties [prop, value]: 
+    %                                   % Limits, LowerLimitInclusive, UpperLimitInclusive, RoundFractionalValues
+    %        
+    %   %    7. radio button group
+    %
+    %    rbg = smartdlg.RadioPart('rbuttons',... Tag
+    %                               'Choose a color',... Label/Text
+    %                               {'green','red','blue'},...
+    %                               'blue',...                default value
+    %                               'Choose your first grade teacher's favorite color');
+    
+    %    % The Checkbox controls whether the  date and duration fields are enabled:
+    %
+    %    cb.attach([ dtf, drf]);
+    %
+    %    sdlg = smartdlg.SmartDlg('mydialog',... Tag
+    %                               'Dialog Title',... Label/Text
+    %                               [dd, cb, txf, dtf, drf, rbg],... all the pieces that belong in this dialog
+    %                               [],...                default value
+    %                               'tooltip?');
+    %   [res, okPressed] = sdlg.Create();
+    %
+    %   % res will then be a struct with fields that match the Tags.
+    %       res.method
+    %       res.statement
+    %       res.number
+    %       etc...
+    %    
+    
     properties
         parts
         minX=20

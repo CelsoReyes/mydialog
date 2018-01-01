@@ -1,17 +1,18 @@
 classdef RadioPart < SmartDlgPart
-    %RadioPart base class for items in a popup menu
+    %RadioPart radio button group
+    
     properties
-        choices
-        choicetips
-        choicetags
-        defaultchoice
-        groupTitle
+        choices     % radio button labels
+        choicetips  % tooltips for each radio button
+        choicetags  % Tag property for each radio button
+        defaultchoice % active radio button
+        groupTitle    % name for the radio button group
     end
     
     methods(Access=public)
-        function obj=ZmapRadioPart(groupTag, groupTitle,choiceTags, choices, defaultchoice, tooltips)
-            %ZMAPRADIOPART group of radio buttons
-            % obj=ZmapRadioPart(groupTag, groupTitle,choiceTags, choices, defaultchoice, tooltips)
+        function obj=RadioPart(groupTag, groupTitle,choiceTags, choices, defaultchoice, tooltips)
+            %RADIOPART group of radio buttons
+            % obj=RadioPart(groupTag, groupTitle,choiceTags, choices, defaultchoice, tooltips)
             % obj.Value % returns the TAG associated with the chosen radio button
             
             assert(numel(choices)==numel(choiceTags))
